@@ -1,13 +1,25 @@
 import { Routes } from '@angular/router';
 
 const Routing: Routes = [
-  {
-    path: 'dashboard',
-    loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
-  },
+  // {
+  //   path: 'dashboard',
+  //   loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+  // },
   {
     path: 'Performance',
     loadChildren: () => import('./performance/performance.module').then((m) => m.PerformanceModule),
+  },
+  {
+    path: 'Data',
+    loadChildren: () => import('./data/data.module').then((m) => m.DataModule),
+  },
+  {
+    path: 'FFcodes',
+    loadChildren: () => import('./ffcodes/ffcodes.module').then((m) => m.FFCodesModule),
+  },
+  {
+    path: 'Users',
+    loadChildren: () => import('./users/users.module').then((m) => m.UsersModule),
   },
   {
     path: 'Sales',
