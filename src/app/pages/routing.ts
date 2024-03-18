@@ -10,6 +10,10 @@ const Routing: Routes = [
     loadChildren: () => import('./performance/performance.module').then((m) => m.PerformanceModule),
   },
   {
+    path: 'Sales',
+    loadChildren: () => import('./sales/sales.module').then((m) => m.SalesModule),
+  },
+  {
     path: 'builder',
     loadChildren: () => import('./builder/builder.module').then((m) => m.BuilderModule),
   },
