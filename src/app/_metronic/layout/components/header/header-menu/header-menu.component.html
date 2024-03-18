@@ -6,6 +6,18 @@
   </a>
 </div> -->
 <!---Performance-->
+<a routerLink="/Performance" class="menu-item me-lg-1">
+  <ng-container *ngIf="currentLayoutType === 'dark-sidebar'">
+    <img alt="Logo" src="./assets/media/logos/zuventus_logo.png" class="h-25px app-sidebar-logo-default" />
+  </ng-container>
+  <!-- <ng-container *ngIf="currentLayoutType !== 'dark-sidebar'">
+    <img alt="Logo" src="./assets/media/logos/default.svg" class="h-25px app-sidebar-logo-default theme-light-show" />
+    <img alt="Logo" src="./assets/media/logos/default-dark.svg"
+      class="h-25px app-sidebar-logo-default theme-dark-show" />
+  </ng-container>
+
+  <img alt="Logo" src="./assets/media/logos/default-small.svg" class="h-20px app-sidebar-logo-minimize" /> -->
+</a>
 <div class="menu-item me-lg-1">
   <a class="menu-link py-3" routerLinkActive="active menu-here" routerLink="/Performance">
     <span class="menu-title"
@@ -25,7 +37,7 @@
   </a>
 </div>
 <div class="menu-item me-lg-1">
-  <a class="menu-link py-3" routerLinkActive="active menu-here" routerLink="/FFCodes">
+  <a class="menu-link py-3" routerLinkActive="active menu-here" routerLink="/FFcodes">
     <span class="menu-title"
          >FFCodes</span>
   </a>

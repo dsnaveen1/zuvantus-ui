@@ -11,6 +11,7 @@ import { LayoutService } from '../../../core/layout.service';
 })
 export class HeaderMenuComponent implements OnInit {
   constructor(private router: Router, private layout: LayoutService, private layoutInit: LayoutInitService) {}
+  currentLayoutType: LayoutType | null;
 
   ngOnInit(): void {}
 
