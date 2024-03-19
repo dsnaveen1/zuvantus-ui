@@ -1,36 +1,129 @@
 <!--begin::Row-->
-<div class="d-flex flex-wrap flex-stack mb-6">
-  <h3 class="fw-bolder my-2">
-    Performance
-  </h3>
-  <div class="d-flex flex-wrap my-2">
-    <div class="me-4">
-      <select
-        name="status"
-        data-control="select2"
-        data-hide-search="true"
-        class="form-select form-select-sm form-select-white w-125px" 
-        defaultValue="Active"
-      >
-        <option value="Active"> FY 22-23</option>
-        <option value="Approved">FY 23-24</option>
-        <option value="Declined">FY 24-25</option>
-        <!-- <option value="In Progress">Completed</option> -->
-      </select>
-    </div>
-    <!-- <a
-      class="btn btn-primary btn-sm cursor-pointer"
-      data-bs-toggle="modal"
-      data-bs-target="#kt_modal_create_project"
-    >
-      New Project
-    </a> -->
+<div class="row g-5 g-xl-8">
+  <!--begin::Col-->
+
+    <div class="d-flex flex-wrap flex-stack mb-6">
+      <h3 class="fw-bolder my-2">
+        Performance
+      </h3>
+    
+      <!--begin::Menu wrapper-->
+      <div class="dropdown">
+        <!--begin::Toggle-->
+        <button type="button" class="btn btn-primary rotate" 
+        data-kt-menu-trigger="click" 
+        data-kt-menu-placement="bottom-start"
+        data-kt-menu-offset="30px, 30px">
+    Click to open menu n....
+    <span class="svg-icon fs-3 rotate-180 ms-3 me-0">...</span>
+    </button>
+        <!--end::Toggle-->
+    
+        <!--begin::Menu-->
+        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-auto min-w-200 mw-300px" style="position: relative;" data-kt-menu="true">
+         
+    
+            <!--begin::Menu separator-->
+            <div class="separator mb-3 opacity-75"></div>
+            <!--end::Menu separator-->
+    
+            <!--begin::Menu items-->
+            <div class="menu-items px-3">
+                <!-- Your menu items go here -->
+                <div class="menu-item">
+                    <a href="#" class="menu-link">New Ticket yets</a>
+                </div>
+                <div class="menu-item">
+                    <a href="#" class="menu-link">New Customer</a>
+                </div>
+                <div class="menu-item">
+                  <a href="#" class="menu-link">New Customer</a>
+              </div>
+            </div>
+            <!--end::Menu items-->
+    
+            <!--begin::Menu separator-->
+            <div class="separator mt-3 opacity-75"></div>
+            <!--end::Menu separator-->
+    
+            <!--begin::Menu item-->
+            <!--end::Menu item-->
+        </div>
+        <!--end::Menu-->
+
+    
+    <!--end::Dropdown wrapper-->
+        <!-- <a
+          class="btn btn-primary btn-sm cursor-pointer"
+          data-bs-toggle="modal"
+          data-bs-target="#kt_modal_create_project"
+        >
+          New Project
+        </a> -->
+      </div>
+  </div>
+  <!--end::Col-->
+
+  
+  <!--end::Col-->
+</div>
+
+
+  
+
+<div class="row g-5 g-xl-8">
+  <div class="col-xl-3">
+    <app-stats-widget5
+      svgIcon="./assets/media/icons/duotune/general/chart-simple"
+      class="card bg-light-success hoverable card-xl-stretch mb-xl-8"
+      color="white"
+      routerLink="/Performance/allemployee"
+      routerLinkActive="active"
+      title="3500"
+      description="All Employee"
+    ></app-stats-widget5>
+  </div>
+  <div class="col-xl-3">
+    <app-stats-widget5
+      svgIcon="./assets/media/icons/duotune/finance/briefcase"
+      class="card bg-light-primary hoverable card-xl-stretch mb-xl-8"
+      color="white"
+      routerLink="/Performance/probationemployee"
+      routerLinkActive="active"
+      title="2250"
+      description="Confirmed Employee"
+    ></app-stats-widget5>
+  </div>
+
+  <div class="col-xl-3">
+    <app-stats-widget5
+      svgIcon="./assets/media/icons/duotune/ecommerce/cheque"
+      class="card bg-light-warning hoverable card-xl-stretch mb-xl-8"
+      color="white"
+      routerLink="/Performance/confirmedemployee"
+      routerLinkActive="active"
+      title="250"
+      description=" Probation Employee"
+    ></app-stats-widget5>
+  </div>
+
+  <div class="col-xl-3">
+    <app-stats-widget5
+      svgIcon="./assets/media/icons/duotune/graphs/chart-pie-simple"
+      class="card bg-light-danger hoverable card-xl-stretch mb-5 mb-xl-8"
+      color="white"
+      routerLink="/Performance/exitedemployee"
+      routerLinkActive="active"
+      title="1000"
+      description=" Exited Employee"
+    ></app-stats-widget5>
   </div>
 </div>
-<div class="row g-5 g-xl-10 mb-5 mb-xl-10">
-  <!--begin::Col-->
-  <div class="col-md-6 col-lg-6 col-xl-6  mb-md-5 mb-xl-10">
-    <div class="d-flex ">
+
+<!-- <div class="row g-5 g-xl-10 mb-5 mb-xl-10"> -->
+
+  <!-- <div class="col-md-6 col-lg-6 col-xl-6  mb-md-5 mb-xl-10"> -->
+    <!-- <div class="d-flex ">
       <ul
         class="
           nav nav-stretch nav-line-tabs nav-line-tabs-2x
@@ -43,8 +136,7 @@
         <li class="nav-item">
           <a
             class="nav-link text-active-primary me-6"
-            routerLink="/Performance/allemployee"
-            routerLinkActive="active"
+            
           >
           All Employee
           </a>
@@ -77,7 +169,7 @@
           </a>
         </li>
       </ul>
-    </div>
+    </div> -->
     <!-- <app-mixed-widget6></app-mixed-widget6> -->
     <!-- <app-tables-widget11></app-tables-widget11> -->
     <!-- <app-cards-widget20 cssClass="h-md-50 mb-5 mb-xl-10" description="Active Projects" color="#F1416C"
@@ -86,7 +178,7 @@
 
     <app-cards-widget7 cssClass="h-md-50 mb-5 mb-xl-10" [icon]="false" [stats]="357" description="Professionals"
       labelColor="dark" textColor="gray-300"></app-cards-widget7> -->
-  </div>
+  <!-- </div> -->
   <!--end::Col-->
 
   <!--begin::Col-->
@@ -100,8 +192,10 @@
   <!--begin::Col-->
   <!-- <app-engage-widget10 class="col-xxl-6" cssClass="h-md-100"></app-engage-widget10> -->
   <!--end::Col-->
-</div>
+<!-- </div> -->
 <!--end::Row-->
+
+<router-outlet></router-outlet>
 
 <!--begin::Row-->
 <!-- <div class="row gx-5 gx-xl-10">/ -->
@@ -161,4 +255,4 @@
 <button class="btn btn-primary" (click)="openModal()">Open modal</button> -->
 <!-- Note: Don't forget import ModalsModule (from _metronic/partials) into your module -->
 <!-- end:: Modal example -->
-<router-outlet></router-outlet>
+

@@ -9,17 +9,19 @@ import { PerformanceRoutingModule } from './performance-routing.module';
 import { ProbationEmployeeComponent } from './probation-employees/probation-employee.component';
 import { ConfirmedEmployeeComponent } from './confirmed-employees/confirmed-employee.component';
 import { ExitedEmployeeComponent } from './exited-employees/exited-employee.component';
+import { ExtrasModule } from "../../_metronic/partials/layout/extras/extras.module";
 
 
 
 @NgModule({
-  declarations: [PerformanceComponent,AllEmployeeComponent,ProbationEmployeeComponent,ConfirmedEmployeeComponent,ExitedEmployeeComponent],
-  imports: [
-    CommonModule,
-    DataTablesModule,
-    PerformanceRoutingModule,
-    WidgetsModule,
-    ModalsModule,
-  ]
+    declarations: [PerformanceComponent, AllEmployeeComponent, ProbationEmployeeComponent, ConfirmedEmployeeComponent, ExitedEmployeeComponent],
+    imports: [
+        CommonModule,
+        DataTablesModule,
+        PerformanceRoutingModule,
+        WidgetsModule,
+        ModalsModule,
+        ExtrasModule
+    ]
 })
 export class PerformanceModule { }

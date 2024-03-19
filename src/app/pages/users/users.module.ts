@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { UsersComponent } from './users.component';
 import { ModalsModule, WidgetsModule } from '../../_metronic/partials';
+import { DataTablesModule } from 'angular-datatables';
 
 
 
@@ -17,6 +18,7 @@ import { ModalsModule, WidgetsModule } from '../../_metronic/partials';
       },
     ]),
     WidgetsModule,
+    DataTablesModule,
     ModalsModule,
   ]
 })

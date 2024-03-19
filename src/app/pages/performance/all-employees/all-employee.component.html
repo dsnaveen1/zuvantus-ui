@@ -15,6 +15,9 @@
             Export Report
         </button>
     </div>
+    <button type="button" class="btn btn-light-primary me-3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+        Check-In
+    </button>
         
         <!--begin::Filter-->
         <button type="button" class="btn btn-light-primary me-3" data-bs-toggle="tooltip" title="Coming Soon">
@@ -43,12 +46,13 @@
 <table id="kt_datatable_example_1" class="table align-middle table-row-dashed fs-6 gy-5" datatable [dtOptions] ="dtOptions" [dtTrigger]="dtTrigger">
     <thead>
     <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
-        <th>Customer Name</th>
-        <th>Email</th>
-        <th>Company</th>
-        <th>Payment Method</th>
-        <th>Created Date</th>
-        <th class="text-end min-w-100px">Actions</th>
+        <th>Employee Code</th>
+        <th>Employee Name</th>
+        <th>Employment Status</th>
+        <th>Grade</th>
+        <th>Designation</th>
+        <th>Department</th>
+        <th>Actions</th>
     </tr>
     </thead>
     <tbody class="text-gray-600 fw-semibold">

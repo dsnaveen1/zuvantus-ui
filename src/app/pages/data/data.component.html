@@ -1,10 +1,44 @@
-<h1>Data</h1>
-<div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-md-5 mb-xl-10">
-    <app-mixed-widget6></app-mixed-widget6>
-    <!-- <app-cards-widget20 cssClass="h-md-50 mb-5 mb-xl-10" description="Active Projects" color="#F1416C"
-      img="./assets/media/patterns/vector-1.png"></app-cards-widget20>
-      <app-mixed-widget6></app-mixed-widget6>
-
-    <app-cards-widget7 cssClass="h-md-50 mb-5 mb-xl-10" [icon]="false" [stats]="357" description="Professionals"
-      labelColor="dark" textColor="gray-300"></app-cards-widget7> -->
+<div class="row g-5 g-xl-10 mb-5 mb-xl-10">
+    <!--begin::Col-->
+    <div class="col-md-6 col-lg-6 col-xl-6  mb-md-5 mb-xl-10">
+      <div class="d-flex ">
+        <ul
+          class="
+            nav nav-stretch nav-line-tabs nav-line-tabs-2x
+            border-transparent
+            fs-5
+            fw-bolder
+            flex-nowrap
+          "
+        >
+          <li class="nav-item">
+            <a
+              class="nav-link text-active-primary me-6"
+              routerLink="/Data/salesdata"
+              routerLinkActive="active"
+            >  Sales Data
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link text-active-primary me-6"
+              routerLink="/Data/doctorscallavg"
+              routerLinkActive="active"
+            >  Doctors Call Avg
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link text-active-primary me-6"
+              routerLink="/Data/mclcoverage"
+              routerLinkActive="active"
+            >  MCL Coverage
+            </a>
+          </li>
+        </ul>
+      </div>
   </div>
+
+<router-outlet></router-outlet>
+
+
