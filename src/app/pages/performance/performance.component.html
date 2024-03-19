@@ -1,5 +1,32 @@
 <!--begin::Row-->
-<h1>Performance</h1>
+<div class="d-flex flex-wrap flex-stack mb-6">
+  <h3 class="fw-bolder my-2">
+    Performance
+  </h3>
+  <div class="d-flex flex-wrap my-2">
+    <div class="me-4">
+      <select
+        name="status"
+        data-control="select2"
+        data-hide-search="true"
+        class="form-select form-select-sm form-select-white w-125px" 
+        defaultValue="Active"
+      >
+        <option value="Active"> FY 22-23</option>
+        <option value="Approved">FY 23-24</option>
+        <option value="Declined">FY 24-25</option>
+        <!-- <option value="In Progress">Completed</option> -->
+      </select>
+    </div>
+    <!-- <a
+      class="btn btn-primary btn-sm cursor-pointer"
+      data-bs-toggle="modal"
+      data-bs-target="#kt_modal_create_project"
+    >
+      New Project
+    </a> -->
+  </div>
+</div>
 <div class="row g-5 g-xl-10 mb-5 mb-xl-10">
   <!--begin::Col-->
   <div class="col-md-6 col-lg-6 col-xl-6  mb-md-5 mb-xl-10">
@@ -16,6 +43,7 @@
         <li class="nav-item">
           <a
             class="nav-link text-active-primary me-6"
+            routerLink="/Performance/allemployee"
             routerLinkActive="active"
           >
           All Employee
@@ -24,6 +52,7 @@
         <li class="nav-item">
           <a
             class="nav-link text-active-primary me-6"
+            routerLink="/Performance/probationemployee"
             routerLinkActive="active"
           >
             Probation Employee
@@ -32,6 +61,7 @@
         <li class="nav-item">
           <a
             class="nav-link text-active-primary me-6"
+            routerLink="/Performance/confirmedemployee"
             routerLinkActive="active"
           >
             Confirmed Employee
@@ -40,6 +70,7 @@
         <li class="nav-item">
           <a
             class="nav-link text-active-primary me-6"
+            routerLink="/Performance/exitedemployee"
             routerLinkActive="active"
           >
             Exited Employee
@@ -130,3 +161,4 @@
 <button class="btn btn-primary" (click)="openModal()">Open modal</button> -->
 <!-- Note: Don't forget import ModalsModule (from _metronic/partials) into your module -->
 <!-- end:: Modal example -->
+<router-outlet></router-outlet>
