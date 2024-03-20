@@ -34,7 +34,15 @@ export class UserService {
     private apiUrl = 'https://preview.keenthemes.com/starterkit/metronic/laravel/api/v1/users';
     // private apiUrl = 'http://127.0.0.1:8000/api/v1/users';
 
+    private zuventusApiUrl = 'http://localhost:3000/records/getRecords';
+
+
     constructor(private http: HttpClient) { }
+
+    getRecords(dataTablesParameters: any): Observable<DataTablesResponse> {
+        const url = `${this.zuventusApiUrl}`;
+        return this.http.post<DataTablesResponse>(url, dataTablesParameters);
+    }
 
     getUsers(dataTablesParameters: any): Observable<DataTablesResponse> {
         const url = `${this.apiUrl}-list`;
