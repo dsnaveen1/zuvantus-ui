@@ -6,11 +6,13 @@
   </a>
 </div> -->
 <!---Performance-->
-<a routerLink="/Performance" class="menu-item me-lg-1">
+<div class="menu-item me-lg-1">
+<a routerLink="/Performance"  routerLinkActive="active menu-here" class="menu-item me-lg-1">
   <ng-container *ngIf="currentLayoutType !== 'dark-sidebar'">
     <img alt="Logo" src="./assets/media/logos/zuventus_logo.png" class="h-25px app-sidebar-logo-default theme-light-show" />
   </ng-container>
 </a>
+</div>
 <div class="menu-item me-lg-1">
   <a class="menu-link py-3" routerLinkActive="active menu-here" routerLink="/Performance">
     <span class="menu-title"

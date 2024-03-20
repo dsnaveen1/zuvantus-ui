@@ -46,16 +46,19 @@
 <table id="kt_datatable_example_1" class="table align-middle table-row-dashed fs-6 gy-5" datatable [dtOptions] ="dtOptions" [dtTrigger]="dtTrigger">
     <thead>
     <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
-        <th>Employee Code</th>
-        <th>Employee Name</th>
-        <th>Employment Status</th>
-        <th>Grade</th>
-        <th>Designation</th>
-        <th>Department</th>
-        <th>Actions</th>
+        <ng-container *ngFor="let key of getColumnKeys()">
+            <th>{{ key }}</th>
+        </ng-container>
+        <!-- <th>Actions</th> -->
     </tr>
     </thead>
     <tbody class="text-gray-600 fw-semibold">
+        <tr *ngFor="let item of data">
+            <ng-container *ngFor="let key of getColumnKeys()">
+                <td>{{ item[key] }}</td>
+            </ng-container>
+            <!-- Actions column, you can replace '...' with appropriate actions -->
+        </tr>
     </tbody>
 </table>
 <!--end::Datatable-->
