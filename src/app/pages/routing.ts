@@ -68,7 +68,7 @@ const Routing: Routes = [
   },
   {
     path: '',
-    redirectTo: '/dashboard',
+    redirectTo: '/Performance',
     pathMatch: 'full',
   },
   {

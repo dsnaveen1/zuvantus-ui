@@ -12,7 +12,8 @@ const routes: Routes = [
     children: [
       {
         path: 'allemployee',
-        component: AllEmployeeComponent,
+    loadChildren: () => import('./../user/user.module').then((m) => m.UserModule),
+        // component: AllEmployeeComponent,
       },
       {
         path: 'probationemployee',
