@@ -12,19 +12,27 @@ import { Observable } from 'rxjs';
 //   }
 
 @Injectable({
-    providedIn: 'root'
-  })
-  export class PerformanceApiService {
-  
-    constructor(private http: HttpClient) { }
-  
-    async getPerformanceData(): Promise<any[]> {
-      try{
+  providedIn: 'root',
+})
+export class PerformanceApiService {
+  constructor(private http: HttpClient) {}
+
+  async getPerformanceData(): Promise<any[]> {
+    try {
       return await this.http.get<any>('./assets/performance.json').toPromise();
     } catch (error) {
       console.error('Error fetching mock data:', error);
       return [];
     }
-    }
   }
 
+
+  async getAllEmployeePerformanceCount(): Promise<any[]> {
+    try {
+      return await this.http.get<any>('http://localhost:3000/records/getRecords').toPromise();
+    } catch (error) {
+      console.error('Error fetching mock data:', error);
+      return [];
+    }
+  }
+}

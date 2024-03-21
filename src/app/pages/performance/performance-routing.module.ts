@@ -11,24 +11,8 @@ const routes: Routes = [
     component: PerformanceComponent,
     children: [
       {
-        path: 'allemployee',
-    // loadChildren: () => import('./../user/user.module').then((m) => m.UserModule),
+        path: 'employee/:type', // allemployee
         component: AllEmployeeComponent,
-      },
-      {
-        path: 'probationemployee',
-        // loadChildren: () => import('./../user/user.module').then((m) => m.UserModule),
-        component: ProbationEmployeeComponent,
-      },
-      {
-        path: 'confirmedemployee',
-        // loadChildren: () => import('./../user/user.module').then((m) => m.UserModule),
-        component: ConfirmedEmployeeComponent,
-      },
-      {
-        path: 'exitedemployee',
-        //  loadChildren: () => import('./../user/user.module').then((m) => m.UserModule),
-        component: ExitedEmployeeComponent,
       },
       
       { path: '', redirectTo: 'allemployee', pathMatch: 'full' },

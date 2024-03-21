@@ -1,11 +1,25 @@
-import { AfterViewInit, ChangeDetectorRef, Component, EventEmitter, OnDestroy, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  OnDestroy,
+  OnInit,
+  TemplateRef,
+  ViewChild,
+} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 import { Observable } from 'rxjs';
-import { DataTablesResponse, IUserModel, UserService } from 'src/app/_fake/services/user-service';
+import {
+  DataTablesResponse,
+  IUserModel,
+  UserService,
+} from 'src/app/_fake/services/user-service';
 import { SweetAlertOptions } from 'sweetalert2';
 import moment from 'moment';
 import { IRoleModel, RoleService } from 'src/app/_fake/services/role.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-all-employee',
@@ -13,7 +27,6 @@ import { IRoleModel, RoleService } from 'src/app/_fake/services/role.service';
   // styleUrls: ['./user-listing.component.scss']
 })
 export class AllEmployeeComponent implements OnInit, AfterViewInit, OnDestroy {
-
   isCollapsed1 = false;
   isCollapsed2 = true;
 
@@ -36,98 +49,112 @@ export class AllEmployeeComponent implements OnInit, AfterViewInit, OnDestroy {
   swalOptions: SweetAlertOptions = {};
 
   roles$: Observable<DataTablesResponse>;
+  type: string;
+  constructor(
+    private apiService: UserService,
+    private route: ActivatedRoute,
+    private roleService: RoleService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
-  constructor(private apiService: UserService, private roleService: RoleService, private cdr: ChangeDetectorRef) { }
-
-  ngAfterViewInit(): void {
-  }
+  ngAfterViewInit(): void {}
 
   ngOnInit(): void {
+    // this.type = this.route.snapshot.paramMap.get('type') as string;
 
+    this.route.params.subscribe(params => {
+      this.type = params.type
+      this.loadTable()
+      this.reloadEvent.emit(true);
+    });
+
+    // this.roles$ = this.roleService.getRoles();
+  }
+
+
+  loadTable(){
     const columns = [
       {
-          "title": "EMPLOYEE CODE",
-          "data": "EMPLOYEE CODE"
+        title: 'EMPLOYEE CODE',
+        data: 'EMPLOYEE CODE',
       },
       {
-          "title": "Employee Name",
-          "data": "Employee Name"
+        title: 'Employee Name',
+        data: 'Employee Name',
       },
       {
-          "title": "Designation",
-          "data": "Designation"
+        title: 'Designation',
+        data: 'Designation',
       },
       {
-          "title": "City",
-          "data": "City"
+        title: 'City',
+        data: 'City',
       },
       {
-          "title": "State",
-          "data": "State"
+        title: 'State',
+        data: 'State',
       },
       {
-          "title": "Department",
-          "data": "Department"
+        title: 'Department',
+        data: 'Department',
       },
       {
-          "title": "Employment Status",
-          "data": "Employment Status"
+        title: 'Employment Status',
+        data: 'Employment Status',
       },
       {
-          "title": "Performance (Primary) % YTD",
-          "data": "Performance (Primary) % YTD"
+        title: 'Performance (Primary) % YTD',
+        data: 'Performance (Primary) % YTD',
       },
       {
-          "title": "YTD PDVT",
-          "data": "YTD PDVT"
+        title: 'YTD PDVT',
+        data: 'YTD PDVT',
       },
       {
-          "title": "YTD GRWTH",
-          "data": "YTD GRWTH"
+        title: 'YTD GRWTH',
+        data: 'YTD GRWTH',
       },
       {
-          "title": "Position Code",
-          "data": "Position Code"
+        title: 'Position Code',
+        data: 'Position Code',
       },
       {
-          "title": "ffcode_list",
-          "data": "ffcode_list"
+        title: 'ffcode_list',
+        data: 'ffcode_list',
       },
       {
-          "title": "Grade",
-          "data": "Grade"
+        title: 'Grade',
+        data: 'Grade',
       },
       {
-          "title": "Date of Joining",
-          "data": "Date of Joining"
+        title: 'Date of Joining',
+        data: 'Date of Joining',
       },
       {
-          "title": "Doctor Call Average % YTD",
-          "data": "Doctor Call Average % YTD"
+        title: 'Doctor Call Average % YTD',
+        data: 'Doctor Call Average % YTD',
       },
       {
-          "title": "MCL Coverage % YTD",
-          "data": "MCL Coverage % YTD"
+        title: 'MCL Coverage % YTD',
+        data: 'MCL Coverage % YTD',
       },
       {
-          "title": "Attrition % YTD",
-          "data": "Attrition % YTD"
+        title: 'Attrition % YTD',
+        data: 'Attrition % YTD',
       },
       {
-          "title": "Saleable Return",
-          "data": "Saleable Return"
+        title: 'Saleable Return',
+        data: 'Saleable Return',
       },
       {
-          "title": "Spread of Performance % YTD",
-          "data": "Spread of Performance % YTD"
+        title: 'Spread of Performance % YTD',
+        data: 'Spread of Performance % YTD',
       },
       {
-          "title": "Growth in Market Share %",
-          "data": "Growth in Market Share %"
-      }
-  ];
-  
-  
+        title: 'Growth in Market Share %',
+        data: 'Growth in Market Share %',
+      },
+    ];
 
     this.datatableConfig = {
       serverSide: true,
@@ -135,7 +162,17 @@ export class AllEmployeeComponent implements OnInit, AfterViewInit, OnDestroy {
       scrollY: 'calc(100vh - 200px)', // Adjust height as needed
       scrollX: true, // Enable horizontal scrolling
       ajax: (dataTablesParameters: any, callback) => {
-        this.apiService.getRecords(dataTablesParameters).subscribe(resp => {
+        if (this.type === 'confirmedemployee') {
+        } else if (this.type === 'allemployee') {
+          dataTablesParameters.filter = { "Employment Status": "Active" }
+        }
+        else if (this.type === 'probationemployee') {
+          dataTablesParameters.filter = { "Employment Status": "Probation" }
+        }
+        else if (this.type === 'exitedemployee') {
+          dataTablesParameters.filter = { "Employment Status": "Exited" }
+        }
+        this.apiService.getRecords(dataTablesParameters).subscribe((resp) => {
           callback(resp);
         });
       },
@@ -243,14 +280,12 @@ export class AllEmployeeComponent implements OnInit, AfterViewInit, OnDestroy {
       //     }
       //   }
       // ],
-      // columns: 
+      // columns:
       columns,
       createdRow: function (row, data, dataIndex) {
         $('td:eq(0)', row).addClass('d-flex align-items-center');
       },
     };
-
-    // this.roles$ = this.roleService.getRoles();
   }
 
   delete(id: number) {
@@ -267,7 +302,7 @@ export class AllEmployeeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   create() {
-    this.userModel = { id: 0, name: '', email: '', };
+    this.userModel = { id: 0, name: '', email: '' };
   }
 
   onSubmit(event: Event, myForm: NgForm) {
@@ -280,7 +315,10 @@ export class AllEmployeeComponent implements OnInit, AfterViewInit, OnDestroy {
     const successAlert: SweetAlertOptions = {
       icon: 'success',
       title: 'Success!',
-      text: this.userModel.id > 0 ? 'User updated successfully!' : 'User created successfully!',
+      text:
+        this.userModel.id > 0
+          ? 'User updated successfully!'
+          : 'User created successfully!',
     };
     const errorAlert: SweetAlertOptions = {
       icon: 'error',
@@ -357,13 +395,16 @@ export class AllEmployeeComponent implements OnInit, AfterViewInit, OnDestroy {
     if (swalOptions.icon === 'error') {
       style = 'danger';
     }
-    this.swalOptions = Object.assign({
-      buttonsStyling: false,
-      confirmButtonText: "Ok, got it!",
-      customClass: {
-        confirmButton: "btn btn-" + style
-      }
-    }, swalOptions);
+    this.swalOptions = Object.assign(
+      {
+        buttonsStyling: false,
+        confirmButtonText: 'Ok, got it!',
+        customClass: {
+          confirmButton: 'btn btn-' + style,
+        },
+      },
+      swalOptions
+    );
     this.cdr.detectChanges();
     this.noticeSwal.fire();
   }

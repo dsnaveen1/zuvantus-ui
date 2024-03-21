@@ -71,15 +71,15 @@
 
   
 
-<div class="row g-5 g-xl-8">
+<div *ngIf="count"  class="row g-5 g-xl-8">
   <div class="col-xl-3">
     <app-stats-widget5
       svgIcon="./assets/media/icons/duotune/general/chart-simple"
       class="card bg-light-success hoverable card-xl-stretch mb-xl-8"
       color="white"
-      routerLink="/Performance/allemployee"
+      routerLink="/Performance/employee/allemployee"
       routerLinkActive="active"
-      title="3500"
+      [title]="count.all"
       description="All Employee"
     ></app-stats-widget5>
   </div>
@@ -88,9 +88,9 @@
       svgIcon="./assets/media/icons/duotune/finance/briefcase"
       class="card bg-light-primary hoverable card-xl-stretch mb-xl-8"
       color="white"
-      routerLink="/Performance/confirmedemployee"
+      routerLink="/Performance/employee/confirmedemployee"
       routerLinkActive="active"
-      title="2250"
+      [title]="count.Active"
       description="Confirmed Employee"
     ></app-stats-widget5>
   </div>
@@ -100,9 +100,9 @@
       svgIcon="./assets/media/icons/duotune/ecommerce/cheque"
       class="card bg-light-warning hoverable card-xl-stretch mb-xl-8"
       color="white"
-      routerLink="/Performance/probationemployee"
+      routerLink="/Performance/employee/probationemployee"
       routerLinkActive="active"
-      title="250"
+      [title]="count.Probation"
       description=" Probation Employee"
     ></app-stats-widget5>
   </div>
@@ -112,9 +112,9 @@
       svgIcon="./assets/media/icons/duotune/graphs/chart-pie-simple"
       class="card bg-light-danger hoverable card-xl-stretch mb-5 mb-xl-8"
       color="white"
-      routerLink="/Performance/exitedemployee"
+      routerLink="/Performance/employee/exitedemployee"
       routerLinkActive="active"
-      title="1000"
+      [title]="count.Exited"
       description=" Exited Employee"
     ></app-stats-widget5>
   </div>
