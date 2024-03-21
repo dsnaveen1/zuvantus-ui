@@ -8,7 +8,9 @@
     "watch": "ng build --watch --configuration development",
     "rtl": "webpack --config=rtl.config.js",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "build-prod":"ng build --base-href \"https://dsnaveen1.github.io/zuvantus-ui/\"",
+    "deploy": "npx angular-cli-ghpages --dir=dist/demo1"
   },
   "private": true,
   "dependencies": {
