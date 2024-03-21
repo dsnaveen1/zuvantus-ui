@@ -250,7 +250,7 @@ export class UserListingComponent implements OnInit, AfterViewInit, OnDestroy {
       },
     };
 
-    this.roles$ = this.roleService.getRoles();
+    // this.roles$ = this.roleService.getRoles();
   }
 
   delete(id: number) {

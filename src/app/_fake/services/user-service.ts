@@ -8,6 +8,8 @@ export interface DataTablesResponse {
     recordsTotal: number;
     recordsFiltered: number;
     data: any[];
+    search?: { value: string };
+    filter?: { 'Employment Status': string };
 }
 
 export interface IUserModel {
@@ -34,16 +36,26 @@ export class UserService {
     private apiUrl = 'https://preview.keenthemes.com/starterkit/metronic/laravel/api/v1/users';
     // private apiUrl = 'http://127.0.0.1:8000/api/v1/users';
 
-    private zuventusApiUrl = 'http://localhost:3000/records/getRecords';
+    private getAllRecords = 'http://localhost:3000/records/getRecords';
+    private ffcodes ='http://localhost:3000/records/ffcodes';
 
 
     constructor(private http: HttpClient) { }
 
-    getRecords(dataTablesParameters: any): Observable<DataTablesResponse> {
-        const url = `${this.zuventusApiUrl}`;
+    getRecords_Status(dataTablesParameters: DataTablesResponse,filter: string): Observable<DataTablesResponse> {
+        const url = `${this.getAllRecords}`;
+        dataTablesParameters.filter = { 'Employment Status': filter };
+        return this.http.post<DataTablesResponse>(url, dataTablesParameters);
+    }
+    getRecords(dataTablesParameters: DataTablesResponse): Observable<DataTablesResponse> {
+        const url = `${this.getAllRecords}`;
         return this.http.post<DataTablesResponse>(url, dataTablesParameters);
     }
 
+    getFFcodes(dataTablesParameters: DataTablesResponse): Observable<DataTablesResponse> {
+        const url = `${this.ffcodes}`;
+        return this.http.post<DataTablesResponse>(url, dataTablesParameters);
+    }
     getUsers(dataTablesParameters: any): Observable<DataTablesResponse> {
         const url = `${this.apiUrl}-list`;
         return this.http.post<DataTablesResponse>(url, dataTablesParameters);

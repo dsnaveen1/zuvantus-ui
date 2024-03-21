@@ -10,6 +10,11 @@ import { ProbationEmployeeComponent } from './probation-employees/probation-empl
 import { ConfirmedEmployeeComponent } from './confirmed-employees/confirmed-employee.component';
 import { ExitedEmployeeComponent } from './exited-employees/exited-employee.component';
 import { ExtrasModule } from "../../_metronic/partials/layout/extras/extras.module";
+import { CrudModule } from 'src/app/modules/crud/crud.module';
+import { SharedModule } from 'src/app/_metronic/shared/shared.module';
+import { NgbCollapseModule, NgbDropdownModule, NgbNavModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
 
@@ -17,11 +22,19 @@ import { ExtrasModule } from "../../_metronic/partials/layout/extras/extras.modu
     declarations: [PerformanceComponent, AllEmployeeComponent, ProbationEmployeeComponent, ConfirmedEmployeeComponent, ExitedEmployeeComponent],
     imports: [
         CommonModule,
+        CrudModule,
+        FormsModule,
+        ReactiveFormsModule,
+        SharedModule,
         DataTablesModule,
         PerformanceRoutingModule,
         WidgetsModule,
         ModalsModule,
-        ExtrasModule
+        ExtrasModule,NgbNavModule,
+        NgbDropdownModule,
+        NgbCollapseModule,
+        NgbTooltipModule,
+        SweetAlert2Module.forChild(),
     ]
 })
 export class PerformanceModule { }

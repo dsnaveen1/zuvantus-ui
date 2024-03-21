@@ -12,19 +12,22 @@ const routes: Routes = [
     children: [
       {
         path: 'allemployee',
-    loadChildren: () => import('./../user/user.module').then((m) => m.UserModule),
-        // component: AllEmployeeComponent,
+    // loadChildren: () => import('./../user/user.module').then((m) => m.UserModule),
+        component: AllEmployeeComponent,
       },
       {
         path: 'probationemployee',
+        // loadChildren: () => import('./../user/user.module').then((m) => m.UserModule),
         component: ProbationEmployeeComponent,
       },
       {
         path: 'confirmedemployee',
+        // loadChildren: () => import('./../user/user.module').then((m) => m.UserModule),
         component: ConfirmedEmployeeComponent,
       },
       {
         path: 'exitedemployee',
+        //  loadChildren: () => import('./../user/user.module').then((m) => m.UserModule),
         component: ExitedEmployeeComponent,
       },
       

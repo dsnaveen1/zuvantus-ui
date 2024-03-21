@@ -15,7 +15,7 @@ dtOptions: DataTables.Settings = {};
 
 dtTrigger: Subject<any> = new Subject<any>();
  @ViewChild(DataTableDirective, { static: false })
-datatableElement: DataTableDirective;
+datatableElement: DataTableDirective;   
 ngOnInit(): void {
 this.dtOptions = {
     scrollX: true,
