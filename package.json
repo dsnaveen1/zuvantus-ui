@@ -8,7 +8,9 @@
     "watch": "ng build --watch --configuration development",
     "rtl": "webpack --config=rtl.config.js",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "build-prod":"ng build --base-href \"https://dsnaveen1.github.io/zuvantus-ui/\"",
+    "deploy": "npx angular-cli-ghpages --dir=dist/demo1"
   },
   "private": true,
   "dependencies": {
@@ -72,6 +74,7 @@
     "@types/sass-loader": "8.0.3",
     "@typescript-eslint/eslint-plugin": "^5.59.2",
     "@typescript-eslint/parser": "^5.59.2",
+    "angular-cli-ghpages": "^2.0.0-beta.2",
     "css-loader": "^6.7.3",
     "del": "^7.0.0",
     "eslint": "^8.39.0",

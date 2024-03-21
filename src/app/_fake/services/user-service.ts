@@ -36,8 +36,8 @@ export class UserService {
     private apiUrl = 'https://preview.keenthemes.com/starterkit/metronic/laravel/api/v1/users';
     // private apiUrl = 'http://127.0.0.1:8000/api/v1/users';
 
-    private getAllRecords = 'http://localhost:3000/records/getRecords';
-    private ffcodes ='http://localhost:3000/records/ffcodes';
+    private getAllRecords = 'https://zu-backend.onrender.com/records/getRecords';
+    private ffcodes ='https://zu-backend.onrender.com/records/ffcodes';
 
 
     constructor(private http: HttpClient) { }
